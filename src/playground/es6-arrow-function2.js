@@ -1,5 +1,3 @@
-'use strict';
-
 // arguments object - no longer bound with arrow functions
 
 //es5 function - if need access to arguments use this j\
@@ -13,27 +11,28 @@
 
 //es6 arrow function - no longer access to arguments
 
-var add = function add(a, b) {
+const add = (a, b) => {
     // console.log(arguments);
     return a + b;
-};
+}
+
 
 // this keyword - no longer bound
 
-var user = {
+const user = {
     name: 'Andrew',
     cities: ['Seattle', 'Houston', 'Federal Way'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
+    printPlacesLived: function () {
         //es6 arrow function lets you use `this` within function
-        this.cities.forEach(function (city) {
-            console.log(_this.name + ' has lived in ' + city);
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city);
         });
     }
 };
 user.printPlacesLived();
 
 //don't use arrow function for methods
-//gets values from parent/globally
-//so does not have access to user object
+    //gets values from parent/globally
+    //so does not have access to user object
+
+

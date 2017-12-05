@@ -7,13 +7,24 @@ console.log("App.js is running!");
 
 var app = {
     title: 'Indecision App',
-    subtitle: 'Put your lives in the hands of a computer'
+    subtitle: 'Put your lives in the hands of a computer',
+    options: ['One', 'Two']
 };
+
+function getOptions(options) {
+    if(options.length > 0) {
+        return <p>Here are your options</p>
+    } else {
+        return <p>No options</p>
+    }
+}
 
 var template = (
     <div>
         <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        {getOptions(app.options)}
+        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
         <ol>
             <li>Item one</li>
             <li>Item two</li>

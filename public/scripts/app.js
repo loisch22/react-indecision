@@ -3,6 +3,9 @@
 console.log("App.js is running!");
 
 // JSX - JavaScript XML
+// if statements
+// ternary operators
+// logical and operator
 
 var app = {
     title: 'Indecision App',
@@ -43,6 +46,21 @@ var user = {
     age: 26,
     location: 'Seattle'
 };
+// if statement
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
+    }
+};
+// ternary operation ? :
+//logical and&& operator
+// true && 'Some age' --> if its 'true' then string show
+// if false && 'Some age' --> false value is returned
 
 var templateTwo = React.createElement(
     'div',
@@ -50,20 +68,15 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : 'Anonymous'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
         'Age: ',
         user.age
     ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
+    getLocation(user.location)
 );
 
 var appRoot = document.getElementById('app');

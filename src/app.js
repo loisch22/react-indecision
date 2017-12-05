@@ -1,6 +1,9 @@
 console.log("App.js is running!");
 
 // JSX - JavaScript XML
+// if statements
+// ternary operators
+// logical and operator
 
 var app = {
     title: 'Indecision App',
@@ -23,12 +26,22 @@ var user = {
     age: 26,
     location: 'Seattle'
 };
+// if statement
+function getLocation(location) {
+    if(location) {
+        return <p>Location: {location}</p>;
+    }
+};
+// ternary operation ? :
+//logical and&& operator
+    // true && 'Some age' --> if its 'true' then string show
+    // if false && 'Some age' --> false value is returned
 
 var templateTwo = (
   <div>
-      <h1>{user.name}</h1>
-      <p>Age: {user.age}</p>
-      <p>Location: {user.location}</p>
+      <h1>{user.name ? user.name : 'Anonymous'}</h1>
+      {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+      {getLocation(user.location)}
   </div>
 );
 

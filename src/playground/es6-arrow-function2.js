@@ -51,7 +51,9 @@ const multiplier = {
     numbers: [2, 3, 4, 5],
     multiplyBy: 2,
     multiply() {
-        return this.numbers.map((number) => number * this.multiplyBy);
+        return this.numbers.map((number) => {
+            return number * this.multiplyBy;
+        });
     }
 };
 

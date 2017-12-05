@@ -30,7 +30,8 @@ var squareArrow = function squareArrow(x) {
 console.log(squareArrow(2));
 
 //regular arrow function practice
-var fullName = 'Andrew Mead';
+
+// const fullName = 'Andrew Mead';
 // let firstName;
 //
 // const getFirstName = (fullName) => {
@@ -40,8 +41,22 @@ var fullName = 'Andrew Mead';
 
 
 //arrow function using shorthand syntax
+
+// const getFirstName = (fullName) => fullName.split(' ')[0];
+//
+// console.log(getFirstName(fullName));
+
+
+//teacher example
+
+// const getFirstName = (fullName) => {
+//     return fullName.split(' ')[0];
+// }
+//
+// console.log(getFirstName('Mike Mead'));
+
 var getFirstName = function getFirstName(fullName) {
     return fullName.split(' ')[0];
 };
 
-console.log(getFirstName(fullName));
+console.log(getFirstName('Michael Mead'));

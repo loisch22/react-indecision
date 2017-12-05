@@ -22,7 +22,8 @@ const add = (a, b) => {
 const user = {
     name: 'Andrew',
     cities: ['Seattle', 'Houston', 'Federal Way'],
-    printPlacesLived: function () {
+    //es6 method on objects function syntax
+    printPlacesLived() {
         //es6 arrow function lets you use `this` within function
         this.cities.forEach((city) => {
             console.log(this.name + ' has lived in ' + city);

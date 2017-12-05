@@ -23,6 +23,7 @@ var add = function add(a, b) {
 var user = {
     name: 'Andrew',
     cities: ['Seattle', 'Houston', 'Federal Way'],
+    //es6 method on objects function syntax
     printPlacesLived: function printPlacesLived() {
         var _this = this;
 

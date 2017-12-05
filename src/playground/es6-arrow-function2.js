@@ -24,11 +24,10 @@ const user = {
     cities: ['Seattle', 'Houston', 'Federal Way'],
     //es6 method on objects function syntax
     printPlacesLived() {
-        const cityMessages = this.cities.map((city) => {
+        return this.cities.map((city) => {
             return this.name + ' has lived in ' + city;
         });
-        return cityMessages;
-
+        
         //es6 arrow function lets you use `this` within function
         // this.cities.forEach((city) => {
         //     console.log(this.name + ' has lived in ' + city);

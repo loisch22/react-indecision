@@ -27,10 +27,9 @@ var user = {
     printPlacesLived: function printPlacesLived() {
         var _this = this;
 
-        var cityMessages = this.cities.map(function (city) {
+        return this.cities.map(function (city) {
             return _this.name + ' has lived in ' + city;
         });
-        return cityMessages;
 
         //es6 arrow function lets you use `this` within function
         // this.cities.forEach((city) => {

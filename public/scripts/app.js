@@ -2,11 +2,6 @@
 
 console.log("App.js is running!");
 
-// JSX - JavaScript XML
-// if statements
-// ternary operators
-// logical and operator
-
 var app = {
     title: 'Indecision App',
     subtitle: 'Put your lives in the hands of a computer',
@@ -69,7 +64,7 @@ var user = {
     age: 26,
     location: 'Seattle'
 };
-// if statement
+
 function getLocation(location) {
     if (location) {
         return React.createElement(
@@ -80,10 +75,6 @@ function getLocation(location) {
         );
     }
 };
-// ternary operation ? :
-//logical and&& operator
-// true && 'Some age' --> if its 'true' then string show
-// if false && 'Some age' --> false value is returned
 
 var templateTwo = React.createElement(
     'div',

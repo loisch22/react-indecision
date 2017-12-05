@@ -3,18 +3,24 @@
 console.log("App.js is running!");
 
 // JSX - JavaScript XML
+
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your lives in the hands of a computer'
+};
+
 var template = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Indecision App'
+        app.title
     ),
     React.createElement(
         'p',
         null,
-        'This is some info'
+        app.subtitle
     ),
     React.createElement(
         'ol',

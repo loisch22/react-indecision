@@ -1,14 +1,27 @@
 console.log("App.js is running!");
 
-// JSX - JavaScript XML (JS syntax extension - syntax provided by React
-// - like SCSS or LESS extension for CSS)
-// Need to compile to regular JS to display on browser - Babeljs.io
+// JSX - JavaScript XML
+var template = (
+    <div>
+        <h1>Indecision App</h1>
+        <p>This is some info</p>
+        <ol>
+            <li>Item one</li>
+            <li>Item two</li>
+        </ol>
+    </div>
+);
 
-// JSX expression below
-var template = <h1>Indecision App</h1>;
+var templateTwo = (
+  <div>
+      <h1>Lois</h1>
+      <p>Age: 27</p>
+      <p>Location: Seattle</p>
+  </div>
+);
 
-//created ID in DOM to place template
 var appRoot = document.getElementById('app');
+var appRootTwo = document.getElementById('appTwo');
 
-//takes 2 arguments, what to render and where
 ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRootTwo);

@@ -1,20 +1,59 @@
-"use strict";
+'use strict';
 
 console.log("App.js is running!");
 
-// JSX - JavaScript XML (JS syntax extension - syntax provided by React
-// - like SCSS or LESS extension for CSS)
-// Need to compile to regular JS to display on browser - Babeljs.io
-
-// JSX expression below
+// JSX - JavaScript XML
 var template = React.createElement(
-  "h1",
-  null,
-  "Indecision App"
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Indecision App'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'This is some info'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item one'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item two'
+        )
+    )
 );
 
-//created ID in DOM to place template
-var appRoot = document.getElementById('app');
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Lois'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Age: 27'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Location: Seattle'
+    )
+);
 
-//takes 2 arguments, what to render and where
+var appRoot = document.getElementById('app');
+var appRootTwo = document.getElementById('appTwo');
+
 ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRootTwo);

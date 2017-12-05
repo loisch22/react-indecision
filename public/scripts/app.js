@@ -47,3 +47,20 @@ console.log(user.printPlacesLived());
 //can make changes to each item in array like + '!'
 //allows us to make function
 //no need for variable
+
+
+//CHALLENGE AREA
+
+var multiplier = {
+    numbers: [2, 3, 4, 5],
+    multiplyBy: 2,
+    multiply: function multiply() {
+        var _this2 = this;
+
+        return this.numbers.map(function (number) {
+            return number * _this2.multiplyBy;
+        });
+    }
+};
+
+console.log(multiplier.multiply());

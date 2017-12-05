@@ -24,16 +24,25 @@ const user = {
     cities: ['Seattle', 'Houston', 'Federal Way'],
     //es6 method on objects function syntax
     printPlacesLived() {
-        //es6 arrow function lets you use `this` within function
-        this.cities.forEach((city) => {
-            console.log(this.name + ' has lived in ' + city);
+        const cityMessages = this.cities.map((city) => {
+            return this.name + ' has lived in ' + city;
         });
+        return cityMessages;
+
+        //es6 arrow function lets you use `this` within function
+        // this.cities.forEach((city) => {
+        //     console.log(this.name + ' has lived in ' + city);
+        // });
     }
 };
-user.printPlacesLived();
+console.log(user.printPlacesLived());
 
 //don't use arrow function for methods
     //gets values from parent/globally
     //so does not have access to user object
 
+//array function - map
+    //can make changes to each item in array like + '!'
+    //allows us to make function
+    //no need for variable
 

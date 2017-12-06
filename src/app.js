@@ -18,13 +18,10 @@ const template = (
     </div>
 );
 
-//js does not have data binding
-//count is being increased but DOM is not being updated
-//regenerate template and re-render it to screen to change count
+
 let count = 0;
 const addOne = () => {
     count++;
-    //call the renderCounterApp() to re-render the view
     renderCounterApp();
 };
 const minusOne = () => {
@@ -52,5 +49,4 @@ const renderCounterApp = () => {
     ReactDOM.render(templateTwo, appRoot);
 };
 
-//initialize our app
 renderCounterApp();

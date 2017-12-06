@@ -20,9 +20,8 @@ const onFormSubmit = (e) => {
     }
 };
 
-const removeAll = () => {
+const onRemoveAll = () => {
     app.options = [];
-    console.log('remove all', app.options.length);
     renderOptions();
 }
 
@@ -43,7 +42,7 @@ const renderOptions = () => {
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
                 <button>Add Option</button>
-                <button onClick={removeAll}>Remove All</button>
+                <button onClick={onRemoveAll}>Remove All</button>
             </form>
         </div>
     );

@@ -2,19 +2,13 @@
 
 var app = {
     title: 'Visibility Toggle',
-    text: 'Hey this works!',
-    show: 'Show details',
-    hide: 'Hide details'
+    text: 'Hey this works!'
 };
 
 var visibility = false;
 
 var onShowDetails = function onShowDetails() {
-    if (visibility === false) {
-        visibility = true;
-    } else {
-        visibility = false;
-    }
+    visibility = !visibility;
     render();
 };
 
@@ -34,10 +28,10 @@ var render = function render() {
             { onClick: onShowDetails },
             visibility ? 'Hide details' : 'Show details'
         ),
-        React.createElement(
+        visibility && true && React.createElement(
             'p',
             null,
-            visibility ? 'Hey it works!' : ''
+            app.text
         )
     );
     ReactDOM.render(template, appRoot);

@@ -1,18 +1,12 @@
 const app = {
     title: 'Visibility Toggle',
-    text: 'Hey this works!',
-    show: 'Show details',
-    hide: 'Hide details'
+    text: 'Hey this works!'
 };
 
 let visibility = false;
 
 const onShowDetails = () => {
-    if(visibility === false) {
-        visibility = true;
-    } else {
-        visibility = false;
-    }
+    visibility = !visibility;
     render();
 };
 
@@ -25,7 +19,7 @@ const render = () => {
             <button onClick={onShowDetails}>
                 {visibility ? 'Hide details' : 'Show details'}
             </button>
-            <p>{visibility ? 'Hey it works!' : ''}</p>
+            {(visibility && true) && <p>{app.text}</p> }
         </div>
     );
     ReactDOM.render(template, appRoot);

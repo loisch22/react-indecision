@@ -20,6 +20,13 @@ const onFormSubmit = (e) => {
     }
 };
 
+const removeAll = () => {
+    app.options = [];
+    console.log('remove all', app.options.length);
+    renderOptions();
+}
+
+
 const appRoot = document.getElementById('app');
 
 const renderOptions = () => {
@@ -36,6 +43,7 @@ const renderOptions = () => {
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
                 <button>Add Option</button>
+                <button onClick={removeAll}>Remove All</button>
             </form>
         </div>
     );

@@ -6,19 +6,10 @@ const app = {
     options: ['One', 'Two']
 };
 
-function getOptions(options) {
-    if(options.length > 0) {
-        return <p>Here are your options</p>
-    } else {
-        return <p>No options</p>
-    }
-}
-
 const template = (
     <div>
         <h1>{app.title}</h1>
         {app.subtitle && <p>{app.subtitle}</p>}
-        {getOptions(app.options)}
         <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
         <ol>
             <li>Item one</li>
@@ -27,28 +18,14 @@ const template = (
     </div>
 );
 
-const user = {
-    name: 'Andrew',
-    age: 26,
-    location: 'Seattle'
-};
-
-function getLocation(location) {
-    if(location) {
-        return <p>Location: {location}</p>;
-    }
-};
-
+let count = 0;
 const templateTwo = (
   <div>
-      <h1>{user.name ? user.name : 'Anonymous'}</h1>
-      {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-      {getLocation(user.location)}
+      <h1>Count: {count}</h1>
+      <button id="my-id" className="button">+1</button>
   </div>
 );
 
 const appRoot = document.getElementById('app');
-const appRootTwo = document.getElementById('appTwo');
 
-ReactDOM.render(template, appRoot);
-ReactDOM.render(templateTwo, appRootTwo);
+ReactDOM.render(templateTwo, appRoot);

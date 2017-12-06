@@ -1,66 +1,64 @@
 'use strict';
 
-// arguments object - no longer bound with arrow functions
+console.log("App.js is running!");
 
-//es5 function - if need access to arguments use this j\
-
-// const add = function (a, b) {
-//     console.log(arguments);
-//     return a + b;
-// };
-// console.log(add(55, 1001));
-
-
-//es6 arrow function - no longer access to arguments
-
-var add = function add(a, b) {
-    // console.log(arguments);
-    return a + b;
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your lives in the hands of a computer',
+    options: ['One', 'Two']
 };
 
-// this keyword - no longer bound
+var template = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        'p',
+        null,
+        app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item one'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item two'
+        )
+    )
+);
 
-var user = {
-    name: 'Andrew',
-    cities: ['Seattle', 'Houston', 'Federal Way'],
-    //es6 method on objects function syntax
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
+var count = 0;
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Count: ',
+        count
+    ),
+    React.createElement(
+        'button',
+        { id: 'my-id', className: 'button' },
+        '+1'
+    )
+);
 
-        return this.cities.map(function (city) {
-            return _this.name + ' has lived in ' + city;
-        });
+var appRoot = document.getElementById('app');
 
-        //es6 arrow function lets you use `this` within function
-        // this.cities.forEach((city) => {
-        //     console.log(this.name + ' has lived in ' + city);
-        // });
-    }
-};
-console.log(user.printPlacesLived());
-
-//don't use arrow function for methods
-//gets values from parent/globally
-//so does not have access to user object
-
-//array function - map
-//can make changes to each item in array like + '!'
-//allows us to make function
-//no need for variable
-
-
-//CHALLENGE AREA
-
-var multiplier = {
-    numbers: [2, 3, 4, 5],
-    multiplyBy: 2,
-    multiply: function multiply() {
-        var _this2 = this;
-
-        return this.numbers.map(function (number) {
-            return number * _this2.multiplyBy;
-        });
-    }
-};
-
-console.log(multiplier.multiply());
+ReactDOM.render(templateTwo, appRoot);

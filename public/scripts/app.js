@@ -54,6 +54,24 @@ var renderOptions = function renderOptions() {
             app.options.length
         ),
         React.createElement(
+            'button',
+            { onClick: onRemoveAll },
+            'Remove All'
+        ),
+        [React.createElement(
+            'p',
+            { key: '1' },
+            'a'
+        ), React.createElement(
+            'p',
+            { key: '2' },
+            'b'
+        ), React.createElement(
+            'p',
+            { key: '3' },
+            'c'
+        )],
+        React.createElement(
             'ol',
             null,
             React.createElement(
@@ -75,11 +93,6 @@ var renderOptions = function renderOptions() {
                 'button',
                 null,
                 'Add Option'
-            ),
-            React.createElement(
-                'button',
-                { onClick: onRemoveAll },
-                'Remove All'
             )
         )
     );

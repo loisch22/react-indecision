@@ -42,30 +42,56 @@ var template = React.createElement(
     )
 );
 
-//provide function for onClick
-
+//js does not have data binding
+//count is being increased but DOM is not being updated
+//regenerate template and re-render it to screen to change count
 var count = 0;
 var addOne = function addOne() {
-    console.log('addOne');
+    count++;
+    //call the renderCounterApp() to re-render the view
+    renderCounterApp();
 };
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Count: ',
-        count
-    ),
-    React.createElement(
-        'button',
-        { onClick: function onClick() {
-                console.log('some value here');
-            } },
-        '+1'
-    )
-);
+var minusOne = function minusOne() {
+    count--;
+    renderCounterApp();
+    console.log('minusOne', count);
+};
+var reset = function reset() {
+    count = 0;
+    renderCounterApp();
+    console.log('reset', count);
+};
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+var renderCounterApp = function renderCounterApp() {
+    var templateTwo = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Count: ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: addOne },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: minusOne },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: reset },
+            'Reset'
+        )
+    );
+    ReactDOM.render(templateTwo, appRoot);
+};
+
+//initialize our app
+renderCounterApp();

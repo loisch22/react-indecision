@@ -18,8 +18,8 @@ var onFormSubmit = function onFormSubmit(e) {
     if (option) {
         app.options.push(option);
         e.target.elements.option.value = '';
+        renderOptions();
     }
-    renderOptions();
 };
 
 var appRoot = document.getElementById('app');

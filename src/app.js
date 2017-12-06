@@ -16,8 +16,8 @@ const onFormSubmit = (e) => {
     if (option) {
         app.options.push(option);
         e.target.elements.option.value = '';
+        renderOptions();
     }
-    renderOptions();
 };
 
 const appRoot = document.getElementById('app');

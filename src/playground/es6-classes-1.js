@@ -2,16 +2,20 @@
 //classes/components upper case first letter
 
 class Person {
-    //define class via constructor function
     constructor(name = 'Anonymous') {
-        // this.name = name || 'no name';
         this.name = name;
     }
 
+    getGreeting() {
+        //return 'Hi I am ' + this.name + '!';
+
+        //template string better to inject data
+        return `Hi. I am ${this.name}`;
+    }
 }
 
 const me = new Person('Lois');
-console.log(me);
+console.log(me.getGreeting());
 
 const other = new Person();
-console.log(other);
+console.log(other.getGreeting());

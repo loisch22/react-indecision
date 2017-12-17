@@ -17,10 +17,19 @@ class Person {
     }
 }
 
-const me = new Person('Lois', 27);
-// console.log(me.getGreeting());
-console.log(me.getDescription());
 
-const other = new Person();
+class Student extends Person {
+    constructor(name, age, major) {
+        //super function refers to parent class
+        super(name, age);
+        this.major = major;
+    }
+}
+
+const me = new Student('Lois', 27, 'Computer Science');
+// console.log(me.getGreeting());
+console.log(me);
+
+const other = new Student();
 // console.log(other.getGreeting());
-console.log(other.getDescription());
+console.log(other);

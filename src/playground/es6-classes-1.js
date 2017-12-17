@@ -10,7 +10,7 @@ class Person {
         //return 'Hi I am ' + this.name + '!';
 
         //template string better to inject data
-        return `Hi. I am ${this.name}`;
+        return `Hi. I am ${this.name}.`;
     }
     getDescription() {
         return `Hi ${this.name}! You are ${this.age} years old.`
@@ -43,8 +43,29 @@ class Student extends Person {
     }
 }
 
-const me = new Student('Lois', 27, 'Computer Science');
-console.log(me.getDescription());
 
-const other = new Student();
-console.log(other.getDescription());
+class Traveler extends Person {
+    constructor(name, age, homeLocation) {
+        super(name, age);
+        this.homeLocation = homeLocation;
+    }
+
+    getGreeting() {
+        let greeting = super.getGreeting();
+
+        if (this.homeLocation) {
+            greeting += ` I am from ${this.homeLocation}.`;
+        }
+
+        return greeting;
+    }
+
+}
+
+
+
+const me = new Traveler('Lois', 27, 'Seattle');
+console.log(me.getGreeting());
+
+const other = new Traveler();
+console.log(other.getGreeting());

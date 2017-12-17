@@ -29,12 +29,22 @@ class Student extends Person {
         //!!doesContainString = true
         return !!this.major;
     }
+    //override getDescription()
+    getDescription() {
+        //call getDescription() from parent
+        let description = super.getDescription();
+
+        if (this.hasMajor()) {
+            //use back-ticks
+            description += ` Their major is ${this.major}.`;
+        }
+
+        return description;
+    }
 }
 
 const me = new Student('Lois', 27, 'Computer Science');
-// console.log(me.getGreeting());
-console.log(me.hasMajor());
+console.log(me.getDescription());
 
 const other = new Student();
-// console.log(other.getGreeting());
-console.log(other.hasMajor());
+console.log(other.getDescription());

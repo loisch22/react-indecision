@@ -54,13 +54,22 @@ var Student = function (_Person) {
         return _this;
     }
 
+    _createClass(Student, [{
+        key: 'hasMajor',
+        value: function hasMajor() {
+            //logical not operator
+            //!!doesContainString = true
+            return !!this.major;
+        }
+    }]);
+
     return Student;
 }(Person);
 
 var me = new Student('Lois', 27, 'Computer Science');
 // console.log(me.getGreeting());
-console.log(me);
+console.log(me.hasMajor());
 
 var other = new Student();
 // console.log(other.getGreeting());
-console.log(other);
+console.log(other.hasMajor());

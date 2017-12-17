@@ -24,12 +24,17 @@ class Student extends Person {
         super(name, age);
         this.major = major;
     }
+    hasMajor() {
+        //logical not operator
+        //!!doesContainString = true
+        return !!this.major;
+    }
 }
 
 const me = new Student('Lois', 27, 'Computer Science');
 // console.log(me.getGreeting());
-console.log(me);
+console.log(me.hasMajor());
 
 const other = new Student();
 // console.log(other.getGreeting());
-console.log(other);
+console.log(other.hasMajor());

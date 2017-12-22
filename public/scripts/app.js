@@ -111,8 +111,8 @@ var Traveler = function (_Person2) {
     return Traveler;
 }(Person);
 
-var me = new Traveler('Lois', 27, 'Seattle');
-console.log(me.getGreeting());
+var me = new Student('Lois', 27, 'Science');
+console.log(me.getDescription());
 
-var other = new Traveler();
-console.log(other.getGreeting());
+var other = new Student(undefined, undefined);
+console.log(other.getDescription());

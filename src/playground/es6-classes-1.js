@@ -59,13 +59,12 @@ class Traveler extends Person {
 
         return greeting;
     }
-
 }
 
 
 
-const me = new Traveler('Lois', 27, 'Seattle');
-console.log(me.getGreeting());
+const me = new Student('Lois', 27, 'Science');
+console.log(me.getDescription());
 
-const other = new Traveler();
-console.log(other.getGreeting());
+const other = new Student(undefined, undefined);
+console.log(other.getDescription());

@@ -1,10 +1,10 @@
 class IndecisionApp extends React.Component {
     render() {
-        const title = 'Indecision';
+        // const title = 'Indecision';
 
         return (
           <div>
-              <Header title={title}/>
+              <Header title="Test value"/>
               <Action />
               <Options />
               <AddOption />

@@ -15,7 +15,7 @@ var obj = {
   }
 };
 
-var getName = obj.getName.bind(obj);
+var getName = obj.getName.bind({ name: 'Andrew' });
 console.log(getName());
 
 var IndecisionApp = function (_React$Component) {

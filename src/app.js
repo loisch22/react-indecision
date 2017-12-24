@@ -27,10 +27,13 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+  handlePick() {
+    alert('handle pick');
+  }
     render() {
         return (
             <div>
-                <button>What should I do?</button>
+                <button onClick={this.handlePick}>What should I do?</button>
             </div>
         );
     }
@@ -52,9 +55,9 @@ class Option extends React.Component {
     render() {
         return (
           <div>
-          <ul>
-            <li>{this.props.optionText}</li>
-          </ul>
+            <ul>
+              <li>{this.props.optionText}</li>
+            </ul>
           </div>
         );
     }

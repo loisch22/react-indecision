@@ -10,7 +10,7 @@ class IndecisionApp extends React.Component {
               <Action />
               <Options options={options}/>
               <AddOption />
-          </div>
+            </div>
         );
     }
 }
@@ -52,7 +52,9 @@ class Option extends React.Component {
     render() {
         return (
           <div>
-              {this.props.optionText}
+          <ul>
+            <li>{this.props.optionText}</li>
+          </ul>
           </div>
         );
     }
@@ -69,8 +71,5 @@ class AddOption extends React.Component {
         );
     }
 }
-
-
-
 //renders IndecisionApp component into browser
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'))

@@ -137,7 +137,15 @@ var Option = function (_React$Component5) {
             return React.createElement(
                 'div',
                 null,
-                this.props.optionText
+                React.createElement(
+                    'ul',
+                    null,
+                    React.createElement(
+                        'li',
+                        null,
+                        this.props.optionText
+                    )
+                )
             );
         }
     }]);
@@ -175,7 +183,6 @@ var AddOption = function (_React$Component6) {
 
     return AddOption;
 }(React.Component);
-
 //renders IndecisionApp component into browser
 
 

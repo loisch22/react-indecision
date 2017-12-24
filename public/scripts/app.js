@@ -30,10 +30,6 @@ var Counter = function (_React$Component) {
   _createClass(Counter, [{
     key: 'handleAddOne',
     value: function handleAddOne() {
-      //resets and re-renders this.state
-      //prevState is value of object being passed
-      //only provide state (key value in this.state aka count) that you want to change
-      //setState updates object not replace
       this.setState(function (prevState) {
         return {
           count: prevState.count + 1
@@ -43,12 +39,20 @@ var Counter = function (_React$Component) {
   }, {
     key: 'handleMinusOne',
     value: function handleMinusOne() {
-      console.log('handleMinusOne');
+      this.setState(function (prevState) {
+        return {
+          count: prevState.count - 1
+        };
+      });
     }
   }, {
     key: 'handleReset',
     value: function handleReset() {
-      console.log('handleReset');
+      this.setState(function () {
+        return {
+          count: 0
+        };
+      });
     }
   }, {
     key: 'render',

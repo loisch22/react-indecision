@@ -11,10 +11,6 @@ class Counter extends React.Component {
     };
   }
   handleAddOne() {
-    //resets and re-renders this.state
-    //prevState is value of object being passed
-    //only provide state (key value in this.state aka count) that you want to change
-    //setState updates object not replace
     this.setState((prevState) => {
       return {
         count: prevState.count + 1
@@ -22,10 +18,18 @@ class Counter extends React.Component {
     });
   }
   handleMinusOne() {
-    console.log('handleMinusOne');
+    this.setState((prevState) => {
+      return {
+        count: prevState.count - 1
+      }
+    });
   }
   handleReset() {
-    console.log('handleReset');
+    this.setState(() => {
+      return {
+        count: 0
+      }
+    });
   }
 
   render() {

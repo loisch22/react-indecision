@@ -5,9 +5,21 @@ class Counter extends React.Component {
     this.handleAddOne = this.handleAddOne.bind(this);
     this.handleMinusOne = this.handleMinusOne.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    //everything we want to track
+    this.state = {
+      count: 0
+    };
   }
   handleAddOne() {
-    console.log('handleAddOne');
+    //resets and re-renders this.state
+    //prevState is value of object being passed
+    //only provide state (key value in this.state aka count) that you want to change
+    //setState updates object not replace
+    this.setState((prevState) => {
+      return {
+        count: prevState.count + 1
+      };
+    });
   }
   handleMinusOne() {
     console.log('handleMinusOne');
@@ -19,7 +31,7 @@ class Counter extends React.Component {
   render() {
     return (
       <div>
-        <h1>Count: </h1>
+        <h1>Count: {this.state.count}</h1>
         <button onClick={this.handleAddOne}>+1</button>
         <button onClick={this.handleMinusOne}>-1</button>
         <button onClick={this.handleReset}>Reset</button>

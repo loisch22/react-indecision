@@ -48,19 +48,16 @@ var Counter = function (_React$Component) {
   }, {
     key: 'handleReset',
     value: function handleReset() {
-      //older obsolete version
-      //asynchronous count: 0 not applied yet, old value is grabbed instead
-      this.setState({
-        count: 0
+      this.setState(function () {
+        return {
+          count: 0
+        };
       });
-      this.setState({
-        count: this.state.count + 1
+      this.setState(function (prevState) {
+        return {
+          count: prevState.count + 1
+        };
       });
-      // this.setState(() => {
-      //   return {
-      //     count: 0
-      //   }
-      // });
     }
   }, {
     key: 'render',

@@ -25,11 +25,19 @@ class Counter extends React.Component {
     });
   }
   handleReset() {
-    this.setState(() => {
-      return {
-        count: 0
-      }
+    //older obsolete version
+    //asynchronous count: 0 not applied yet, old value is grabbed instead
+    this.setState({
+      count: 0
     });
+    this.setState({
+      count: this.state.count + 1
+    });
+    // this.setState(() => {
+    //   return {
+    //     count: 0
+    //   }
+    // });
   }
 
   render() {

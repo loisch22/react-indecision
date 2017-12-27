@@ -25,23 +25,9 @@ class Counter extends React.Component {
     });
   }
   handleReset() {
-    //older obsolete version
-    //asynchronous count: 0 not applied yet, old value is grabbed instead
-    // this.setState({
-    //   count: 0
-    // });
-    // this.setState({
-    //   count: this.state.count + 1
-    // });
-    //passing function is the future
     this.setState(() => {
       return {
         count: 0
-      };
-    });
-    this.setState((prevState) => {
-      return {
-        count: prevState.count + 1
       };
     });
   }

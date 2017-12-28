@@ -11,24 +11,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var IndecisionApp = function (_React$Component) {
   _inherits(IndecisionApp, _React$Component);
 
-  //pass props if changes to parent branch is needed
   function IndecisionApp(props) {
     _classCallCheck(this, IndecisionApp);
 
-    //set as state for values that change
-    //bind to current component instance
     var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.handlePick = _this.handlePick.bind(_this);
+    _this.handleAddOption = _this.handleAddOption.bind(_this);
     _this.state = {
-      options: ['Thing one', 'Thing two', 'Thing three']
+      options: []
     };
     return _this;
   }
-  //pass function as prop so child component can use and return outcome back to parent
-  //options passes handle function to Options component, can use handle function from parent
-
 
   _createClass(IndecisionApp, [{
     key: 'handleDeleteOptions',
@@ -47,11 +42,18 @@ var IndecisionApp = function (_React$Component) {
       var option = this.state.options[randomNum];
       alert(option);
     }
-    // addOption(option) {
-    //   this.state.options.push(option)
-    // }
-    //child component gets re-rendered
-
+  }, {
+    key: 'handleAddOption',
+    value: function handleAddOption(option) {
+      //use concat so you don't manipuate state
+      //need prevState aka current options array
+      this.setState(function (prevState) {
+        return {
+          //can pass ([option]) or (option)
+          options: prevState.options.concat(option)
+        };
+      });
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -68,7 +70,8 @@ var IndecisionApp = function (_React$Component) {
         React.createElement(Options, {
           options: this.state.options,
           handleDeleteOptions: this.handleDeleteOptions }),
-        React.createElement(AddOption, null)
+        React.createElement(AddOption, {
+          handleAddOption: this.handleAddOption })
       );
     }
   }]);
@@ -201,11 +204,18 @@ var Option = function (_React$Component5) {
 var AddOption = function (_React$Component6) {
   _inherits(AddOption, _React$Component6);
 
-  function AddOption() {
+  //keep handleAddOption since makes sense to live here not in parent
+  //set up constructor since referring to this
+  function AddOption(props) {
     _classCallCheck(this, AddOption);
 
-    return _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).apply(this, arguments));
+    var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+
+    _this6.handleAddOption = _this6.handleAddOption.bind(_this6);
+    return _this6;
   }
+  //two handleAddOption - one lives only in child, other calling from parent using props
+
 
   _createClass(AddOption, [{
     key: 'handleAddOption',
@@ -214,8 +224,7 @@ var AddOption = function (_React$Component6) {
       var option = e.target.elements.option.value.trim();
 
       if (option) {
-        alert('Option added: ' + option);
-        e.target.elements.option.value = '';
+        this.props.handleAddOption(option);
       }
     }
   }, {
@@ -240,7 +249,5 @@ var AddOption = function (_React$Component6) {
 
   return AddOption;
 }(React.Component);
-//renders IndecisionApp component into browser
-
 
 ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));

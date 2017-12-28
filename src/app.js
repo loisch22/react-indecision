@@ -1,5 +1,11 @@
 class IndecisionApp extends React.Component {
   constructor(props) {
+    //props/state - objects, can be used when rendering, changes cause re-rendering
+    //state can change, props change in parents
+    //props come from above/parent
+    //props cannot be changed by component itself
+    //state is defined in component itself
+    //state can track changes, component can change it
     super(props);
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
@@ -17,7 +23,6 @@ class IndecisionApp extends React.Component {
   }
   handlePick() {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
-    //index position within array
     const option = this.state.options[randomNum];
     alert(option);
   }
@@ -25,15 +30,10 @@ class IndecisionApp extends React.Component {
     if(!option) {
       return 'Enter valid value to add option';
     } else if (this.state.options.indexOf(option) > -1) {
-      //indexOf -1 if it does not exist 0 if it does exist
       return 'This option already exists'
-    } //no need for else since return is called above so if either is true it'll stop
-
-    //use concat so you don't manipuate state
-    //need prevState aka current options array
+    }
     this.setState((prevState) => {
       return {
-        //can pass ([option]) or (option)
         options: prevState.options.concat(option)
       };
     });
@@ -110,29 +110,23 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
-  //keep handleAddOption since makes sense to live here not in parent
-  //set up constructor since referring to this
+
   constructor(props) {
     super(props);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
-      //by default no error
       error: undefined
     }
   }
-  //two handleAddOption - one lives only in child, other calling from parent using props
+
   handleAddOption(e) {
     e.preventDefault();
 
     const option = e.target.elements.option.value.trim();
-    //if there is an error, the message from handleAddOption() from parent
     const error = this.props.handleAddOption(option);
 
-    //update error setState
     this.setState(() => {
       return { error };
-      //same name object error and const error can just call error
-      //common to leave in one line
     });
   }
   render() {

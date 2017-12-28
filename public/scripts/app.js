@@ -15,6 +15,13 @@ var IndecisionApp = function (_React$Component) {
     _classCallCheck(this, IndecisionApp);
 
     var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
+    //props/state - objects, can be used when rendering, changes cause re-rendering
+    //state can change, props change in parents
+    //props come from above/parent
+    //props cannot be changed by component itself
+    //state is defined in component itself
+    //state can track changes, component can change it
+
 
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.handlePick = _this.handlePick.bind(_this);
@@ -38,7 +45,6 @@ var IndecisionApp = function (_React$Component) {
     key: 'handlePick',
     value: function handlePick() {
       var randomNum = Math.floor(Math.random() * this.state.options.length);
-      //index position within array
       var option = this.state.options[randomNum];
       alert(option);
     }
@@ -48,15 +54,10 @@ var IndecisionApp = function (_React$Component) {
       if (!option) {
         return 'Enter valid value to add option';
       } else if (this.state.options.indexOf(option) > -1) {
-        //indexOf -1 if it does not exist 0 if it does exist
         return 'This option already exists';
-      } //no need for else since return is called above so if either is true it'll stop
-
-      //use concat so you don't manipuate state
-      //need prevState aka current options array
+      }
       this.setState(function (prevState) {
         return {
-          //can pass ([option]) or (option)
           options: prevState.options.concat(option)
         };
       });
@@ -211,8 +212,6 @@ var Option = function (_React$Component5) {
 var AddOption = function (_React$Component6) {
   _inherits(AddOption, _React$Component6);
 
-  //keep handleAddOption since makes sense to live here not in parent
-  //set up constructor since referring to this
   function AddOption(props) {
     _classCallCheck(this, AddOption);
 
@@ -220,13 +219,10 @@ var AddOption = function (_React$Component6) {
 
     _this6.handleAddOption = _this6.handleAddOption.bind(_this6);
     _this6.state = {
-      //by default no error
       error: undefined
     };
     return _this6;
   }
-  //two handleAddOption - one lives only in child, other calling from parent using props
-
 
   _createClass(AddOption, [{
     key: 'handleAddOption',
@@ -234,14 +230,10 @@ var AddOption = function (_React$Component6) {
       e.preventDefault();
 
       var option = e.target.elements.option.value.trim();
-      //if there is an error, the message from handleAddOption() from parent
       var error = this.props.handleAddOption(option);
 
-      //update error setState
       this.setState(function () {
         return { error: error };
-        //same name object error and const error can just call error
-        //common to leave in one line
       });
     }
   }, {

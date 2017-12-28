@@ -22,6 +22,13 @@ class IndecisionApp extends React.Component {
     alert(option);
   }
   handleAddOption(option) {
+    if(!option) {
+      return 'Enter valid value to add option';
+    } else if (this.state.options.indexOf(option) > -1) {
+      //indexOf -1 if it does not exist 0 if it does exist
+      return 'This option already exists'
+    } //no need for else since return is called above so if either is true it'll stop
+
     //use concat so you don't manipuate state
     //need prevState aka current options array
     this.setState((prevState) => {
@@ -108,19 +115,30 @@ class AddOption extends React.Component {
   constructor(props) {
     super(props);
     this.handleAddOption = this.handleAddOption.bind(this);
+    this.state = {
+      //by default no error
+      error: undefined
+    }
   }
   //two handleAddOption - one lives only in child, other calling from parent using props
   handleAddOption(e) {
     e.preventDefault();
-    const option = e.target.elements.option.value.trim();
 
-    if (option) {
-      this.props.handleAddOption(option);
-    }
+    const option = e.target.elements.option.value.trim();
+    //if there is an error, the message from handleAddOption() from parent
+    const error = this.props.handleAddOption(option);
+
+    //update error setState
+    this.setState(() => {
+      return { error };
+      //same name object error and const error can just call error
+      //common to leave in one line
+    });
   }
   render() {
     return (
       <div>
+        {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.handleAddOption}>
           <input type="text" name="option"/>
           <button>Add Option</button>

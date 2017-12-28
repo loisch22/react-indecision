@@ -45,6 +45,13 @@ var IndecisionApp = function (_React$Component) {
   }, {
     key: 'handleAddOption',
     value: function handleAddOption(option) {
+      if (!option) {
+        return 'Enter valid value to add option';
+      } else if (this.state.options.indexOf(option) > -1) {
+        //indexOf -1 if it does not exist 0 if it does exist
+        return 'This option already exists';
+      } //no need for else since return is called above so if either is true it'll stop
+
       //use concat so you don't manipuate state
       //need prevState aka current options array
       this.setState(function (prevState) {
@@ -212,6 +219,10 @@ var AddOption = function (_React$Component6) {
     var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
     _this6.handleAddOption = _this6.handleAddOption.bind(_this6);
+    _this6.state = {
+      //by default no error
+      error: undefined
+    };
     return _this6;
   }
   //two handleAddOption - one lives only in child, other calling from parent using props
@@ -221,11 +232,17 @@ var AddOption = function (_React$Component6) {
     key: 'handleAddOption',
     value: function handleAddOption(e) {
       e.preventDefault();
-      var option = e.target.elements.option.value.trim();
 
-      if (option) {
-        this.props.handleAddOption(option);
-      }
+      var option = e.target.elements.option.value.trim();
+      //if there is an error, the message from handleAddOption() from parent
+      var error = this.props.handleAddOption(option);
+
+      //update error setState
+      this.setState(function () {
+        return { error: error };
+        //same name object error and const error can just call error
+        //common to leave in one line
+      });
     }
   }, {
     key: 'render',
@@ -233,6 +250,11 @@ var AddOption = function (_React$Component6) {
       return React.createElement(
         'div',
         null,
+        this.state.error && React.createElement(
+          'p',
+          null,
+          this.state.error
+        ),
         React.createElement(
           'form',
           { onSubmit: this.handleAddOption },

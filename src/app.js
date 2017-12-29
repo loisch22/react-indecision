@@ -1,6 +1,6 @@
 //stateless functional Component
+//default prop values practice
 
-//leave as class component
 class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
@@ -37,27 +37,25 @@ class IndecisionApp extends React.Component {
   }
 
   render() {
-      const title = 'Indecision';
-      const subtitle = 'Put your life in the hands of a computer';
+    const title = 'Indecision';
+    const subtitle = 'Put your life in the hands of a computer';
 
-      return (
-        <div>
-            <Header title={title} subtitle={subtitle}/>
-            <Action
-              hasOptions={this.state.options.length > 0}
-              handlePick={this.handlePick}/>
-            <Options
-              options={this.state.options}
-              handleDeleteOptions={this.handleDeleteOptions}/>
-            <AddOption
-              handleAddOption={this.handleAddOption}/>
-          </div>
-      );
+    return (
+      <div>
+          <Header subtitle={subtitle}/>
+          <Action
+            hasOptions={this.state.options.length > 0}
+            handlePick={this.handlePick}/>
+          <Options
+            options={this.state.options}
+            handleDeleteOptions={this.handleDeleteOptions}/>
+          <AddOption
+            handleAddOption={this.handleAddOption}/>
+        </div>
+    );
   }
 }
 
-//could easily be stateless functional component - just a function render
-//only concerned with presentation not managing state
 const Header = (props) => {
   return (
     <div>
@@ -65,6 +63,12 @@ const Header = (props) => {
       <h2>{props.subtitle}</h2>
     </div>
   );
+}
+
+Header.defaultProps = {
+  //define default
+  //if no prop is defined, default will show
+  title: 'some default!'
 }
 
 const Action = (props) => {

@@ -8,6 +8,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//stateless functional Component
+
+//leave as class component
 var IndecisionApp = function (_React$Component) {
   _inherits(IndecisionApp, _React$Component);
 
@@ -15,13 +18,6 @@ var IndecisionApp = function (_React$Component) {
     _classCallCheck(this, IndecisionApp);
 
     var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
-    //props/state - objects, can be used when rendering, changes cause re-rendering
-    //state can change, props change in parents
-    //props come from above/parent
-    //props cannot be changed by component itself
-    //state is defined in component itself
-    //state can track changes, component can change it
-
 
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.handlePick = _this.handlePick.bind(_this);
@@ -86,6 +82,10 @@ var IndecisionApp = function (_React$Component) {
 
   return IndecisionApp;
 }(React.Component);
+
+//could easily be stateless functional component - just a function render
+//only concerned with presentation not managing state
+
 
 var Header = function (_React$Component2) {
   _inherits(Header, _React$Component2);
@@ -264,4 +264,24 @@ var AddOption = function (_React$Component6) {
   return AddOption;
 }(React.Component);
 
-ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
+//stateless functional component
+
+
+var User = function User() {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'p',
+      null,
+      'Name: '
+    ),
+    React.createElement(
+      'p',
+      null,
+      'Age: '
+    )
+  );
+};
+
+ReactDOM.render(React.createElement(User, null), document.getElementById('app'));

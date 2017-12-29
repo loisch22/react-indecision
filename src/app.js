@@ -1,11 +1,8 @@
+//stateless functional Component
+
+//leave as class component
 class IndecisionApp extends React.Component {
   constructor(props) {
-    //props/state - objects, can be used when rendering, changes cause re-rendering
-    //state can change, props change in parents
-    //props come from above/parent
-    //props cannot be changed by component itself
-    //state is defined in component itself
-    //state can track changes, component can change it
     super(props);
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
@@ -59,6 +56,8 @@ class IndecisionApp extends React.Component {
   }
 }
 
+//could easily be stateless functional component - just a function render
+//only concerned with presentation not managing state
 class Header extends React.Component {
     render() {
       return (
@@ -110,7 +109,6 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
-
   constructor(props) {
     super(props);
     this.handleAddOption = this.handleAddOption.bind(this);
@@ -142,4 +140,14 @@ class AddOption extends React.Component {
   }
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
+//stateless functional component
+const User = () => {
+  return (
+    <div>
+      <p>Name: </p>
+      <p>Age: </p>
+    </div>
+  );
+};
+
+ReactDOM.render(<User />, document.getElementById('app'))

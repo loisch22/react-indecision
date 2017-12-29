@@ -58,54 +58,46 @@ class IndecisionApp extends React.Component {
 
 //could easily be stateless functional component - just a function render
 //only concerned with presentation not managing state
-class Header extends React.Component {
-    render() {
-      return (
-        <div>
-          <h1>{this.props.title}</h1>
-          <h2>{this.props.subtitle}</h2>
-        </div>
-      );
-    }
+const Header = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <h2>{props.subtitle}</h2>
+    </div>
+  );
 }
 
-class Action extends React.Component {
-  render() {
-    return (
-      <div>
-        <button onClick={this.props.handlePick}
-        disabled={!this.props.hasOptions}
-        >
-          What should I do?
-        </button>
-      </div>
-    );
-  }
+const Action = (props) => {
+  return (
+    <div>
+      <button onClick={props.handlePick}
+      disabled={!props.hasOptions}
+      >
+        What should I do?
+      </button>
+    </div>
+  );
 }
 
-class Options extends React.Component {
-  render() {
-    return (
-      <div>
-        <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-          {
-            this.props.options.map((option) => <Option key={option} optionText={option}/>)
-          }
-      </div>
-    );
-  }
+const Options = (props) => {
+  return (
+    <div>
+      <button onClick={props.handleDeleteOptions}>Remove All</button>
+        {
+          props.options.map((option) => <Option key={option} optionText={option}/>)
+        }
+    </div>
+  );
 }
 
-class Option extends React.Component {
-  render() {
-    return (
-      <div>
-        <ul>
-          <li>{this.props.optionText}</li>
-        </ul>
-      </div>
-    );
-  }
+const Option = (props) => {
+  return (
+    <div>
+      <ul>
+        <li>{props.optionText}</li>
+      </ul>
+    </div>
+  );
 }
 
 class AddOption extends React.Component {
@@ -126,6 +118,7 @@ class AddOption extends React.Component {
     this.setState(() => {
       return { error };
     });
+    e.target.elements.option.value = '';
   }
   render() {
     return (
@@ -140,17 +133,13 @@ class AddOption extends React.Component {
   }
 }
 
-//stateless functional component
-//can still pass in props
-//no access to 'this' but can pass props and call key/value pair
-//faster than class based component
-const User = (props) => {
-  return (
-    <div>
-      <p>Name: {props.name}</p>
-      <p>Age: {props.age}</p>
-    </div>
-  );
-};
+// const User = (props) => {
+//   return (
+//     <div>
+//       <p>Name: {props.name}</p>
+//       <p>Age: {props.age}</p>
+//     </div>
+//   );
+// };
 
-ReactDOM.render(<User name='Andrew' age={26}/>, document.getElementById('app'))
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'))

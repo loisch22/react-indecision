@@ -143,6 +143,7 @@ class AddOption extends React.Component {
 //stateless functional component
 //can still pass in props
 //no access to 'this' but can pass props and call key/value pair
+//faster than class based component
 const User = (props) => {
   return (
     <div>

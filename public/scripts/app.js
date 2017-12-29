@@ -267,6 +267,7 @@ var AddOption = function (_React$Component6) {
 //stateless functional component
 //can still pass in props
 //no access to 'this' but can pass props and call key/value pair
+//faster than class based component
 
 
 var User = function User(props) {

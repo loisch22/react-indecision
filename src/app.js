@@ -37,7 +37,6 @@ class IndecisionApp extends React.Component {
   }
 
   render() {
-    const title = 'Indecision';
     const subtitle = 'Put your life in the hands of a computer';
 
     return (
@@ -68,7 +67,7 @@ const Header = (props) => {
 Header.defaultProps = {
   //define default
   //if no prop is defined, default will show
-  title: 'some default!'
+  title: 'Indecision'
 }
 
 const Action = (props) => {

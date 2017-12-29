@@ -141,13 +141,15 @@ class AddOption extends React.Component {
 }
 
 //stateless functional component
-const User = () => {
+//can still pass in props
+//no access to 'this' but can pass props and call key/value pair
+const User = (props) => {
   return (
     <div>
-      <p>Name: </p>
-      <p>Age: </p>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
     </div>
   );
 };
 
-ReactDOM.render(<User />, document.getElementById('app'))
+ReactDOM.render(<User name='Andrew' age={26}/>, document.getElementById('app'))

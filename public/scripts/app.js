@@ -265,23 +265,27 @@ var AddOption = function (_React$Component6) {
 }(React.Component);
 
 //stateless functional component
+//can still pass in props
+//no access to 'this' but can pass props and call key/value pair
 
 
-var User = function User() {
+var User = function User(props) {
   return React.createElement(
     'div',
     null,
     React.createElement(
       'p',
       null,
-      'Name: '
+      'Name: ',
+      props.name
     ),
     React.createElement(
       'p',
       null,
-      'Age: '
+      'Age: ',
+      props.age
     )
   );
 };
 
-ReactDOM.render(React.createElement(User, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(User, { name: 'Andrew', age: 26 }), document.getElementById('app'));

@@ -58,7 +58,7 @@ class IndecisionApp extends React.Component {
 
 IndecisionApp.defaultProps = {
   options: []
-}
+};
 
 const Header = (props) => {
   return (
@@ -73,7 +73,7 @@ Header.defaultProps = {
   //define default
   //if no prop is defined, default will show
   title: 'Indecision'
-}
+};
 
 const Action = (props) => {
   return (
@@ -150,4 +150,4 @@ class AddOption extends React.Component {
 //   );
 // };
 
-ReactDOM.render(<IndecisionApp options={['Devils Den', 'Second District']}/>, document.getElementById('app'))
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'))

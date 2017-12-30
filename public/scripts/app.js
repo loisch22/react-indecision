@@ -23,7 +23,8 @@ var IndecisionApp = function (_React$Component) {
     _this.handlePick = _this.handlePick.bind(_this);
     _this.handleAddOption = _this.handleAddOption.bind(_this);
     _this.state = {
-      options: []
+      //referencing options prop below in <IndecisionApp />
+      options: props.options
     };
     return _this;
   }
@@ -81,6 +82,10 @@ var IndecisionApp = function (_React$Component) {
 
   return IndecisionApp;
 }(React.Component);
+
+IndecisionApp.defaultProps = {
+  options: []
+};
 
 var Header = function Header(props) {
   return React.createElement(
@@ -215,4 +220,4 @@ var AddOption = function (_React$Component2) {
 //   );
 // };
 
-ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(IndecisionApp, { options: ['Devils Den', 'Second District'] }), document.getElementById('app'));

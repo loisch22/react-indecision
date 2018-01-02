@@ -13,11 +13,10 @@ class IndecisionApp extends React.Component {
     };
   }
   handleDeleteOptions() {
-    this.setState(() => {
-      return {
-        options: []
-      };
-    });
+    this.setState(() => ({ options: [] }));
+
+    //fat arrow functional
+    //const num = () => 12 + 2 -- when call num always return 14
   }
   handlePick() {
     const randomNum = Math.floor(Math.random() * this.state.options.length);

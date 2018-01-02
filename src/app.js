@@ -9,16 +9,19 @@ class IndecisionApp extends React.Component {
     this.handlePick = this.handlePick.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
-      //referencing options prop below in <IndecisionApp />
       options: props.options
     };
   }
+  //need to spell this correctly, React component
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
   handleDeleteOptions() {
     this.setState(() => ({ options: [] }));
   }
   handleDeleteOption(optionToRemove) {
     this.setState((prevState) => ({
-      //filter function returns only filtered items
       options: prevState.options.filter((option) =>
         optionToRemove !== option)
     }));

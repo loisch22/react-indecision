@@ -24,13 +24,19 @@ var IndecisionApp = function (_React$Component) {
     _this.handlePick = _this.handlePick.bind(_this);
     _this.handleAddOption = _this.handleAddOption.bind(_this);
     _this.state = {
-      //referencing options prop below in <IndecisionApp />
       options: props.options
     };
     return _this;
   }
+  //need to spell this correctly, React component
+
 
   _createClass(IndecisionApp, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      console.log('componentDidMount');
+    }
+  }, {
     key: 'handleDeleteOptions',
     value: function handleDeleteOptions() {
       this.setState(function () {
@@ -42,7 +48,6 @@ var IndecisionApp = function (_React$Component) {
     value: function handleDeleteOption(optionToRemove) {
       this.setState(function (prevState) {
         return {
-          //filter function returns only filtered items
           options: prevState.options.filter(function (option) {
             return optionToRemove !== option;
           })

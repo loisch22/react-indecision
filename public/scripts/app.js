@@ -35,9 +35,6 @@ var IndecisionApp = function (_React$Component) {
       this.setState(function () {
         return { options: [] };
       });
-
-      //fat arrow functional
-      //const num = () => 12 + 2 -- when call num always return 14
     }
   }, {
     key: 'handlePick',
@@ -55,9 +52,7 @@ var IndecisionApp = function (_React$Component) {
         return 'This option already exists';
       }
       this.setState(function (prevState) {
-        return {
-          options: prevState.options.concat(option)
-        };
+        return { options: prevState.options.concat(option) };
       });
     }
   }, {
@@ -182,6 +177,7 @@ var AddOption = function (_React$Component2) {
       this.setState(function () {
         return { error: error };
       });
+
       e.target.elements.option.value = '';
     }
   }, {

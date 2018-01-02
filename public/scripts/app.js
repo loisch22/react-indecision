@@ -32,14 +32,21 @@ var IndecisionApp = function (_React$Component) {
   _createClass(IndecisionApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var json = localStorage.getItem('options');
-      //created object from stringify
-      var options = JSON.parse(json);
+      //check to make sure data is valid JSON format aka not '{12]'
+      try {
+        //tries to run this code - if error
+        var json = localStorage.getItem('options');
+        //created object from stringify
+        var options = JSON.parse(json);
 
-      //same as options: options - same name so it knows what you are referring to
-      this.setState(function () {
-        return { options: options };
-      });
+        if (options) {
+          this.setState(function () {
+            return { options: options };
+          });
+        }
+      } catch (e) {
+        //do nothing at all
+      }
     }
   }, {
     key: 'componentDidUpdate',

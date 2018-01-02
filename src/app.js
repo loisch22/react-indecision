@@ -13,12 +13,19 @@ class IndecisionApp extends React.Component {
     };
   }
   componentDidMount() {
-    const json = localStorage.getItem('options');
-    //created object from stringify
-    const options = JSON.parse(json);
+    //check to make sure data is valid JSON format aka not '{12]'
+    try {
+      //tries to run this code - if error
+      const json = localStorage.getItem('options');
+      //created object from stringify
+      const options = JSON.parse(json);
 
-    //same as options: options - same name so it knows what you are referring to
-    this.setState(() => ({ options }))
+      if (options) {
+        this.setState(() => ({ options }))
+      }
+    } catch (e) {
+      //do nothing at all
+    }
   }
   componentDidUpdate(prevProps, prevState) {
     //avoid saving same data add conditional

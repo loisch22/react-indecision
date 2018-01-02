@@ -44,7 +44,6 @@ var IndecisionApp = function (_React$Component) {
         return {
           //filter function returns only filtered items
           options: prevState.options.filter(function (option) {
-            //if it is NOT equal, stay in array if match remove
             return optionToRemove !== option;
           })
         };

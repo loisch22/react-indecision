@@ -20,10 +20,7 @@ class IndecisionApp extends React.Component {
     this.setState((prevState) => ({
       //filter function returns only filtered items
       options: prevState.options.filter((option) =>
-      {
-        //if it is NOT equal, stay in array if match remove
-        return optionToRemove !== option;
-      })
+        optionToRemove !== option)
     }));
   }
   handlePick() {

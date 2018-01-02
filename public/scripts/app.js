@@ -40,9 +40,17 @@ var IndecisionApp = function (_React$Component) {
     }
   }, {
     key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      //fires after component is updated aka state/prop value is updated
+    value: function componentDidUpdate(prevProps, prevState) {
+      //figure if specific part of component updated
       console.log('componentDidUpdate');
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      //fires just before component goes away
+      //usually not much use for This
+      //shows when switching to new component view
+      console.log('componentWillUnmount');
     }
   }, {
     key: 'handleDeleteOptions',

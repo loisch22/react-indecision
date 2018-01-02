@@ -18,9 +18,15 @@ class IndecisionApp extends React.Component {
   componentDidMount() {
     console.log('componentDidMount');
   }
-  componentDidUpdate() {
-    //fires after component is updated aka state/prop value is updated
+  componentDidUpdate(prevProps, prevState) {
+    //figure if specific part of component updated
     console.log('componentDidUpdate');
+  }
+  componentWillUnmount() {
+    //fires just before component goes away
+    //usually not much use for This
+    //shows when switching to new component view
+    console.log('componentWillUnmount');
   }
 
   handleDeleteOptions() {

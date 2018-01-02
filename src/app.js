@@ -13,8 +13,14 @@ class IndecisionApp extends React.Component {
     };
   }
   //need to spell this correctly, React component
+  //shows in console when the info is mounted to dom
+  //ex of lifecycle method
   componentDidMount() {
     console.log('componentDidMount');
+  }
+  componentDidUpdate() {
+    //fires after component is updated aka state/prop value is updated
+    console.log('componentDidUpdate');
   }
 
   handleDeleteOptions() {

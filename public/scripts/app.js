@@ -29,12 +29,20 @@ var IndecisionApp = function (_React$Component) {
     return _this;
   }
   //need to spell this correctly, React component
+  //shows in console when the info is mounted to dom
+  //ex of lifecycle method
 
 
   _createClass(IndecisionApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       console.log('componentDidMount');
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      //fires after component is updated aka state/prop value is updated
+      console.log('componentDidUpdate');
     }
   }, {
     key: 'handleDeleteOptions',

@@ -28,28 +28,32 @@ var IndecisionApp = function (_React$Component) {
     };
     return _this;
   }
-  //need to spell this correctly, React component
-  //shows in console when the info is mounted to dom
-  //ex of lifecycle method
-
 
   _createClass(IndecisionApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('componentDidMount');
+      var json = localStorage.getItem('options');
+      //created object from stringify
+      var options = JSON.parse(json);
+
+      //same as options: options - same name so it knows what you are referring to
+      this.setState(function () {
+        return { options: options };
+      });
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps, prevState) {
-      //figure if specific part of component updated
-      console.log('componentDidUpdate');
+      //avoid saving same data add conditional
+      if (prevState.options.length !== this.state.options.length) {
+        var json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+        //can check console via localStorage.getItem('options'); to see if it was stored properly
+      }
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      //fires just before component goes away
-      //usually not much use for This
-      //shows when switching to new component view
       console.log('componentWillUnmount');
     }
   }, {
@@ -139,8 +143,6 @@ var Header = function Header(props) {
 };
 
 Header.defaultProps = {
-  //define default
-  //if no prop is defined, default will show
   title: 'Indecision'
 };
 

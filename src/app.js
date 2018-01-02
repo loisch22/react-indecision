@@ -12,20 +12,23 @@ class IndecisionApp extends React.Component {
       options: props.options
     };
   }
-  //need to spell this correctly, React component
-  //shows in console when the info is mounted to dom
-  //ex of lifecycle method
   componentDidMount() {
-    console.log('componentDidMount');
+    const json = localStorage.getItem('options');
+    //created object from stringify
+    const options = JSON.parse(json);
+
+    //same as options: options - same name so it knows what you are referring to
+    this.setState(() => ({ options }))
   }
   componentDidUpdate(prevProps, prevState) {
-    //figure if specific part of component updated
-    console.log('componentDidUpdate');
+    //avoid saving same data add conditional
+    if (prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+      //can check console via localStorage.getItem('options'); to see if it was stored properly
+    }
   }
   componentWillUnmount() {
-    //fires just before component goes away
-    //usually not much use for This
-    //shows when switching to new component view
     console.log('componentWillUnmount');
   }
 
@@ -89,8 +92,6 @@ const Header = (props) => {
 }
 
 Header.defaultProps = {
-  //define default
-  //if no prop is defined, default will show
   title: 'Indecision'
 };
 

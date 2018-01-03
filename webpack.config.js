@@ -5,7 +5,7 @@
 const path = require('path');
 
 //contains path to current location aka indecisionapp proj folder
-console.log(path.join(__dirname, 'public');
+console.log(path.join(__dirname, 'public'));
 
 //below is a 'node thing'
 module.exports = {

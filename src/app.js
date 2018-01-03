@@ -1,12 +1,8 @@
-//import npm modules
-//install library - validator
-//install React
+//install React and react-dom
 //steps: install - import - use
-//usually have to look at documentation to get what you want default export? named?
-//google library aka npm validator
 
-//searches node_modules for same name and uses that library - default export
-//provide module name - see documentation for what this module covers
-import validator from 'validator';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log(validator.isEmail('test@gmail.com'));
+const template = React.createElement('p', {}, 'testing 123');
+ReactDOM.render(template, document.getElementById('app'));

@@ -1,5 +1,5 @@
-const isAdult = (x) => x >= 18;
+const isAdult = (age) => age >= 18;
 
-const canDrink = (x) => x >= 21;
+const canDrink = (age) => age >= 21;
 
 export { isAdult, canDrink };

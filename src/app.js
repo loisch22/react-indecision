@@ -10,4 +10,4 @@
 import { isAdult, canDrink } from './person.js';
 
 console.log('Adult? ', isAdult(18));
-console.log('Can drink? ', canDrink(13));
+console.log('Can drink? ', canDrink(30));

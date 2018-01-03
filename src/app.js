@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//don't need .js - already knows
 import AddOption from './components/AddOption';
-import Option from './components/Option';
+import Header from './components/Header';
+import Action from './components/Action';
+import Options from './components/Options';
 
 class IndecisionApp extends React.Component {
   constructor(props) {
@@ -82,50 +83,6 @@ class IndecisionApp extends React.Component {
     );
   }
 }
-
-const Header = (props) => {
-  return (
-    <div>
-      <h1>{props.title}</h1>
-      {props.subtitle && <h2>{props.subtitle}</h2>}
-    </div>
-  );
-}
-
-Header.defaultProps = {
-  title: 'Indecision'
-};
-
-const Action = (props) => {
-  return (
-    <div>
-      <button onClick={props.handlePick}
-      disabled={!props.hasOptions}
-      >
-        What should I do?
-      </button>
-    </div>
-  );
-}
-
-const Options = (props) => {
-  return (
-    <div>
-      <button onClick={props.handleDeleteOptions}>Remove All</button>
-      {props.options.length === 0 && <p>Please add an option to get started</p>}
-        {
-          props.options.map((option) =>
-          <Option
-            key={option}
-            optionText={option}
-            handleDeleteOption={props.handleDeleteOption}
-          />)
-        }
-    </div>
-  );
-}
-
-
 
 
 

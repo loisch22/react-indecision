@@ -1,6 +1,7 @@
 //utility functions
 console.log('utils.js is running');
 
+//have to have variable name to export it
 export const square = (x) => x * x;
 export const add = (a, b) => a + b;
 

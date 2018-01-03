@@ -91,12 +91,12 @@ console.log('Can drink? ', __WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* canDr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isAdult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
 const isAdult = (x) => x >= 18;
-/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
-
 
 const canDrink = (x) => x >= 21;
-/* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
+
 
 
 

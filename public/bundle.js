@@ -65,9 +65,24 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__utils_js__);
+//import utils.js into app.js aka the entry point
+
 
 console.log('app.js is running');
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+//utility functions
+console.log('utils.js is running');
 
 
 /***/ })

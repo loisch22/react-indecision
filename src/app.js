@@ -1,10 +1,11 @@
 //default goes before named exports
-import subtract, { add, square } from './utils.js';
+//default special - doesn't have to use 'subtract' since its the default, you can name it whatever you want
+import anythingIWant, { add, square } from './utils.js';
 
 console.log('app.js is running');
 console.log(square(4));
 console.log(add(100, 23));
-console.log(subtract(100, 10));
+console.log(anythingIWant(100, 10));
 
 // import { isAdult, canDrink } from './person.js';
 //

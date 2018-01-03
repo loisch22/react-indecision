@@ -13,7 +13,8 @@ module.exports = {
       exclude: /node_modules/
     }]
   },
-  //set source map - allows chrome devtool to give proper line for error
-  //makes debugging faster
-  devtool: 'cheap-module-eval-source-map'
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
+  }
 };

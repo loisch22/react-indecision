@@ -2,9 +2,11 @@ import React from 'react';
 import Modal from 'react-modal';
 
 //Modal requires 2 props to work
+//onRequestClose - closes modal via esc, clicking outside of modal
 const OptionModal = (props) => (
   <Modal
     isOpen={!!props.selectedOption}
+    onRequestClose={props.handleCloseModal}
     contentLabel="Selected Option"
   >
     <h3>Selected Option</h3>
@@ -13,5 +15,4 @@ const OptionModal = (props) => (
   </Modal>
 );
 
-//!! defines as true/false instead of 'undefined' 'null'
 export default OptionModal;

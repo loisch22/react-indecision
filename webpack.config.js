@@ -12,5 +12,8 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/
     }]
-  }
+  },
+  //set source map - allows chrome devtool to give proper line for error
+  //makes debugging faster
+  devtool: 'cheap-module-eval-source-map'
 };

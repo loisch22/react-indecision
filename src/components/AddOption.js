@@ -1,6 +1,5 @@
 import React from 'react';
 
-//can place before class defintions
 export default class AddOption extends React.Component {
   constructor(props) {
     super(props);

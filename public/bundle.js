@@ -90,17 +90,19 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* default */](100, 10))
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return square; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subtract; });
 //exports - default exports
 console.log('utils.js is running');
 
 const square = (x) => x * x;
+/* harmony export (immutable) */ __webpack_exports__["c"] = square;
+
 const add = (a, b) => a + b;
+/* harmony export (immutable) */ __webpack_exports__["a"] = add;
+
 const subtract = (a, b) => a - b;
 
-
+/* harmony default export */ __webpack_exports__["b"] = (subtract); 
+// export { square, add, subtract as default };
 //can only have 0 or 1 default export
 
 

@@ -92,17 +92,16 @@ console.log('Is senior? ', __WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* defau
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isAdult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isSenior; });
 const isAdult = (age) => age >= 18;
-/* harmony export (immutable) */ __webpack_exports__["c"] = isAdult;
-
 
 const canDrink = (age) => age >= 21;
-/* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
+
+const isSenior = (age) => age >= 65;
 
 
-/* harmony default export */ __webpack_exports__["b"] = ((age) => age >= 65);
-
-// export { isAdult, canDrink };
 
 
 /***/ })

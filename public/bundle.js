@@ -69,35 +69,38 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(2);
-// import './utils.js';
-//can just grab what you're using even if utils.js is exporting more than one
-//order does not matter
-// import { add, square } from './utils.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+//default goes before named exports
 
-// console.log('app.js is running');
+
+console.log('app.js is running');
 // console.log(square(4));
 // console.log(add(100, 23));
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* default */](100, 10));
 
-
-
-console.log('Adult? ', __WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* isAdult */](18));
-console.log('Can drink? ', __WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* canDrink */](30));
+// import { isAdult, canDrink } from './person.js';
+//
+// console.log('Adult? ', isAdult(18));
+// console.log('Can drink? ', canDrink(30));
 
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isAdult; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
-const isAdult = (age) => age >= 18;
+/* unused harmony export square */
+/* unused harmony export add */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return subtract; });
+//exports - default exports
+console.log('utils.js is running');
 
-const canDrink = (age) => age >= 21;
+const square = (x) => x * x;
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
 
 
+//can only have 0 or 1 default export
 
 
 /***/ })

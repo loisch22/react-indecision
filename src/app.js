@@ -1,4 +1,5 @@
-//import utils.js into app.js aka the entry point
-import './utils.js'
+// import './utils.js';
+import { square } from './utils.js';
 
 console.log('app.js is running');
+console.log(square(4));

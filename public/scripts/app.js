@@ -31,9 +31,9 @@ var Counter = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       try {
-        var count = parseInt(localStorage.getItem('count'));
+        var count = parseInt(localStorage.getItem('count'), 10);
 
-        if (count) {
+        if (!isNaN(count)) {
           this.setState(function () {
             return { count: count };
           });
@@ -43,7 +43,10 @@ var Counter = function (_React$Component) {
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps, prevState) {
-      localStorage.setItem('count', this.state.count);
+      //don't want this to fire when reset is clicked so..
+      if (prevState.count !== this.state.count) {
+        localStorage.setItem('count', this.state.count);
+      }
     }
   }, {
     key: 'handleAddOne',

@@ -12,9 +12,9 @@ class Counter extends React.Component {
   }
   componentDidMount() {
     try {
-      const count =  parseInt(localStorage.getItem('count'));
+      const count =  parseInt(localStorage.getItem('count'), 10);
 
-      if(count) {
+      if(!isNaN(count)) {
         this.setState(() => ({ count }));
       }
     } catch (e) {
@@ -22,7 +22,10 @@ class Counter extends React.Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem('count', this.state.count);
+    //don't want this to fire when reset is clicked so..
+    if(prevState.count !== this.state.count) {
+      localStorage.setItem('count', this.state.count);
+    }
   }
 
   handleAddOne() {

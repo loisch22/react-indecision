@@ -25,8 +25,12 @@ class IndecisionApp extends React.Component {
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
-    this.setState(() => ({ selectedOption: option })); 
+    this.setState(() => ({ selectedOption: option }));
   };
+
+  handleCloseModal = () => {
+    this.setState(() => ({ selectedOption: undefined }));
+  }
 
   handleAddOption = (option) => {
     if(!option) {
@@ -79,7 +83,9 @@ class IndecisionApp extends React.Component {
           />
           <AddOption
             handleAddOption={this.handleAddOption}/>
-          <OptionModal selectedOption={this.state.selectedOption}/>
+          <OptionModal selectedOption={this.state.selectedOption}
+          handleCloseModal={this.handleCloseModal}
+          />
         </div>
     );
   }

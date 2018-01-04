@@ -1,0 +1,7 @@
+.big-button {
+  background-color: $purple;
+  border: none;
+  //scss has built in functions
+  //darken(color, how much darker)
+  border-bottom: .6rem solid darken($purple, 10%);
+}

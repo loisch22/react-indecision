@@ -1,6 +1,7 @@
 //order matters, want base/header to overwrite settings
-//alphabetical order 
+//alphabetical order
 @import './base/settings';
 @import './base/base';
+@import './components/button';
 @import './components/container';
 @import './components/header';

@@ -1,0 +1,14 @@
+//found this class inside dev tool
+//divs that are direct dependents
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  //define transition style - property - ms - type of transition
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}

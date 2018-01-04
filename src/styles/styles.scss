@@ -1,4 +1,4 @@
-//provide path to base partial
-//remove _ and .scss
+//order matters, want base/header to overwrite settings
+@import './base/settings';
 @import './base/base';
 @import './components/header';

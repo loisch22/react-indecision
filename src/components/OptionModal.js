@@ -5,6 +5,8 @@ const OptionModal = (props) => (
   <Modal
     isOpen={!!props.selectedOption}
     onRequestClose={props.handleCloseModal}
+    //amt of time to wait before closing
+    closeTimeoutMS={200}
     contentLabel="Selected Option"
   >
     <h3>Selected Option</h3>

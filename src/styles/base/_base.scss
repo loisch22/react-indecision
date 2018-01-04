@@ -1,5 +1,12 @@
 //'base.scss partial' partial starts with underscore - contains part of our app styles
+//rem - better support for accessibility - allowing scaling font size up/down better
+//computed in developer tool shows font-size was converted to 16px = 1rem
+//62.5% of its size: 16px base * .625 = 10 --> working with rem in base 10 so 2.2rem = 22px or 1.6rem = 16px
 
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
 }

@@ -12,8 +12,8 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/
     }, {
-      //change to use scss
-      test: /\.scss$/,
+      //? means s is optional
+      test: /\.s?css$/,
       use: [
         'style-loader',
         'css-loader',

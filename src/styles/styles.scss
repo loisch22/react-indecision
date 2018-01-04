@@ -1,5 +1,3 @@
-$brand-color: blue;
-
-* {
-  color: $brand-color;
-}
+//provide path to base partial
+//remove _ and .scss 
+@import './base/base';

@@ -1,13 +1,10 @@
-//partial that will not load by default, need to import
 .header {
   background: #20222b;
   color: white;
   margin-bottom: 4.8rem;
   padding: 1.6rem 0;
 }
-//targeting title inside of header - proper naming convention
-//BEM block element modifier
-//element goes inside block
+
 .header__title {
   font-size: 3.2rem;
   margin: 0;

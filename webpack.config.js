@@ -12,13 +12,12 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/
     }, {
-      //include file that end in .css
-      test: /\.css$/,
-      //npmjs.com/package/css-loader & (style-loader - adds it to the DOM)
-      //use allows an array of loaders
+      //change to use scss
+      test: /\.scss$/,
       use: [
         'style-loader',
-        'css-loader'
+        'css-loader',
+        'sass-loader'
       ]
     }]
   },
